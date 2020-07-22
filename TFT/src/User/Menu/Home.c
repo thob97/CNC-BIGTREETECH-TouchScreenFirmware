@@ -22,8 +22,8 @@ LABEL_HOME,
 // icon                       label
  {{ICON_HOME,                 LABEL_XY},
   {ICON_Z_HOME,               LABEL_Z},
-  {ICON_BACKGROUND,           LABEL_BACKGROUND},
-  {ICON_BACKGROUND,           LABEL_BACKGROUND},
+  {ICON_BACKGROUND,           LABEL_BACKGROUND}, // G92 Z20? ZERO_Z?
+  {ICON_BACKGROUND,           LABEL_BACKGROUND}, // G30? Probe?
   {ICON_ZERO_X,               LABEL_ZERO_X},
   {ICON_ZERO_Y,               LABEL_ZERO_Y},
   {ICON_ZERO_Z,               LABEL_ZERO_Z},

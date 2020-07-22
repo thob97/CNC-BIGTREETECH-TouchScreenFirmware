@@ -56,9 +56,9 @@ void cncMenu(void){
    {ICON_GCODE,         LABEL_TERMINAL},
    {ICON_STOP,          LABEL_EMERGENCYSTOP},
    {ICON_LASER,         LABEL_LASER},
-   {ICON_SPINDLE,       LABEL_SPINDLE},
+   {ICON_ON_OFF,        LABEL_SPINDLE},
    {ICON_SETTINGS,      LABEL_SETTINGS},
-   {ICON_SPINDLE,       LABEL_CUT}}
+   {ICON_MILL,          LABEL_CUT}}
   };
 
   cncPageItems.items[4].icon = (infoSettings.laser_mode == 1) ? ICON_LASER : ICON_FAN;

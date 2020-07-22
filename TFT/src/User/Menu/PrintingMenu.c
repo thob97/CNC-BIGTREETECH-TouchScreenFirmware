@@ -57,12 +57,12 @@ LABEL_BACKGROUND,
   {ICON_BACKGROUND,           LABEL_BACKGROUND},
   {ICON_BACKGROUND,           LABEL_BACKGROUND},
   {ICON_PAUSE,                LABEL_PAUSE},
-  {ICON_BABYSTEP,             LABEL_BABYSTEP},
-  {ICON_MORE,                 LABEL_MORE},
+  {ICON_BABYSTEP,             LABEL_BABYSTEP}, // FEATURE_SETTINGS
+  {ICON_MORE,                 LABEL_MORE},     // SPEED
   {ICON_STOP,                 LABEL_STOP},}
 };
 const ITEM itemBlank      = {ICON_BACKGROUND, LABEL_BACKGROUND};
-const ITEM itemBabyStep   = {ICON_BABYSTEP, LABEL_BABYSTEP};
+const ITEM itemBabyStep   = {ICON_BABYSTEP, LABEL_BABYSTEP}; // FEATURE_SETTINGS
 const ITEM itemIsPause[2] = {
 // icon                       label
   {ICON_PAUSE,                LABEL_PAUSE},
@@ -271,7 +271,7 @@ void reDrawLayer(int icon_pos)
 
   GUI_SetTextMode(GUI_TEXTMODE_TRANS);
 
-  ICON_CustomReadDisplay(printinfo_points[icon_pos].x,printinfo_points[icon_pos].y,PICON_LG_WIDTH,PICON_HEIGHT,ICON_ADDR(ICON_PRINTING_ZLAYER));
+  ICON_CustomReadDisplay(printinfo_points[icon_pos].x,printinfo_points[icon_pos].y,PICON_LG_WIDTH,PICON_HEIGHT,ICON_ADDR(ICON_MACHINING));
   GUI_DispString(printinfo_points[icon_pos].x + PICON_TITLE_X, printinfo_points[icon_pos].y + PICON_TITLE_Y, (u8* )LAYER_TITLE);
   GUI_DispStringInPrect(&printinfo_val_rect[icon_pos], (u8 *)tempstr);
 
@@ -297,7 +297,10 @@ void toggleinfo(void)
     {
       c_fan = (c_fan + 1) % infoSettings.fan_count;
       rapid_serial_loop();   //perform backend printing loop before drawing to avoid printer idling
-      reDrawFan(FAN_ICON_POS);
+      if (infoSettings.cnc_mode != 1)
+      {
+        reDrawFan(FAN_ICON_POS);
+      }
     }
 
     if (infoSettings.cnc_mode != 1)
@@ -449,12 +452,12 @@ void menuPrinting(void)
         resumeToPause(isPause());
         }
         else{
-        infoMenu.menu[++infoMenu.cur] = menuBabyStep;
+        infoMenu.menu[++infoMenu.cur] = menuFeatureSettings;
         }
         break;
 
       case KEY_ICON_6:
-        infoMenu.menu[++infoMenu.cur] = menuMore;
+        infoMenu.menu[++infoMenu.cur] = menuSpeed;
         break;
 
       case KEY_ICON_7:

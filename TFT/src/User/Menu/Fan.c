@@ -37,7 +37,7 @@ void menuFan(void)
   LABEL_FAN,
   // icon                       label
    {{ICON_DEC,                  LABEL_DEC},
-    {ICON_BACKGROUND,           LABEL_BACKGROUND},
+    {ICON_BACKGROUND,           LABEL_BACKGROUND}, // Laser 12, 25, 50, 75
     {ICON_BACKGROUND,           LABEL_BACKGROUND},
     {ICON_INC,                  LABEL_INC},
     {ICON_FAN ,                 LABEL_FAN},

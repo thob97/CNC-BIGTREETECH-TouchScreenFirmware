@@ -6,8 +6,8 @@
 #include "Configuration.h"
 #include "Settings.h"
 
-#define TEMPERATURE_QUERY_FAST_DURATION 1000  // "M105" query temperature every 1s
-#define TEMPERATURE_QUERY_SLOW_DURATION 3000  // 3s
+#define TEMPERATURE_QUERY_FAST_DURATION 1000000  // "M105" query temperature every 1000s
+#define TEMPERATURE_QUERY_SLOW_DURATION 3000000  // 3000s
 
 typedef enum {
   WAIT_NONE = 0,

@@ -8,6 +8,9 @@ const ITEM itemPercentage[SPEED_NUM] = {
   {ICON_EXTRUDE,              LABEL_PERCENTAGE_FLOW},
 };
 
+const ITEM itemBackground =
+  {ICON_BACKGROUND,           LABEL_BACKGROUND};
+
 static int16_t itemPercentageTitle[SPEED_NUM] = {
   LABEL_PERCENTAGE_SPEED,     LABEL_PERCENTAGE_FLOW
 };
@@ -54,9 +57,22 @@ void menuSpeed(void)
     {ICON_BACK,                 LABEL_BACK},}
   };
 
+  if (infoSettings.cnc_mode == 1)
+  {
+    // Disable the switch to flow rate.
+    percentageItems.items[KEY_ICON_4] = itemBackground;
+  }
+
   percentageItems.items[KEY_ICON_5] = itemPercentUnit[item_percent_unit_i];
 
-  storeCmd("M220\nM221\n");
+  if (infoSettings.cnc_mode != 1)
+  {
+    storeCmd("M220\nM221\n");
+  }
+  else
+  {
+    storeCmd("M220\n");
+  }
   KEY_VALUES  key_num=KEY_IDLE;
 
   u16 now = speedGetPercent(item_percentage_i);
@@ -89,13 +105,17 @@ void menuSpeed(void)
         break;
 
       case KEY_ICON_4:
-        item_percentage_i = (item_percentage_i+1) % SPEED_NUM;
-        percentageItems.items[key_num] = itemPercentage[item_percentage_i];
-        menuDrawItem(&percentageItems.items[key_num], key_num);
-        percentageItems.title.index = itemPercentageTitle[item_percentage_i];
-        menuDrawTitle(textSelect(percentageItems.title.index));
-        GUI_ClearPrect(&exhibitRect);
-        percentageReDraw((char*)textSelect(percentageItems.title.index));
+        if (infoSettings.cnc_mode != 1)
+        {
+          // switch to flow rate, only in printer mode.
+          item_percentage_i = (item_percentage_i+1) % SPEED_NUM;
+          percentageItems.items[key_num] = itemPercentage[item_percentage_i];
+          menuDrawItem(&percentageItems.items[key_num], key_num);
+          percentageItems.title.index = itemPercentageTitle[item_percentage_i];
+          menuDrawTitle(textSelect(percentageItems.title.index));
+          GUI_ClearPrect(&exhibitRect);
+          percentageReDraw((char*)textSelect(percentageItems.title.index));
+        }
         break;
 
       case KEY_ICON_5:

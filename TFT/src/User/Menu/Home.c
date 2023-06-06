@@ -20,9 +20,9 @@ const MENUITEMS cncHomeItems = {
 //   title
 LABEL_HOME,
 // icon                       label
- {{ICON_HOME,                 LABEL_XY},
+ {{ICON_HOME,                 LABEL_HOME},
   {ICON_Z_HOME,               LABEL_Z},
-  {ICON_BACKGROUND,           LABEL_BACKGROUND},
+  {ICON_PROBE_OFFSET,         LABEL_PROBE_OFFSET},
   {ICON_BACKGROUND,           LABEL_BACKGROUND},
   {ICON_ZERO_X,               LABEL_ZERO_X},
   {ICON_ZERO_Y,               LABEL_ZERO_Y},
@@ -49,17 +49,16 @@ void menuHome(void)
     {
       switch(key_num)
       {
-        case KEY_ICON_0: storeCmd("G28 XY\n");   break;
-        case KEY_ICON_1:
-          storeCmd("G28 Z\n");
-          if(infoSettings.touchplate_on == 1)
+        case KEY_ICON_0: storeCmd("G53 \nG28\n");    break;
+        case KEY_ICON_1:storeCmd("G53 \nG28 Z\n");   break;
+        case KEY_ICON_2:storeCmd("G53\nG38.2 Z0\nG54\nG91\nG0 Z1\n");   break;
+                  if(infoSettings.touchplate_on == 1)
           {
             storeCmd("G92 Z%.3f\n", infoSettings.touchplate_height);
           }
-          break;
-        case KEY_ICON_4: storeCmd("G92 X0\n"); break;
-        case KEY_ICON_5: storeCmd("G92 Y0\n"); break;
-        case KEY_ICON_6: storeCmd("G92 Z0\n"); break;
+        case KEY_ICON_4: storeCmd("G54 \nG92 X0\n"); break;
+        case KEY_ICON_5: storeCmd("G54 \nG92 Y0\n"); break;
+        case KEY_ICON_6: storeCmd("G54 \nG92 Z0\n"); break;
         default:break;
         case KEY_ICON_7: infoMenu.cur--;      break;
       }

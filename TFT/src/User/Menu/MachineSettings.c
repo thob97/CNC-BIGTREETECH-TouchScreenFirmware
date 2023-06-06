@@ -185,6 +185,21 @@ void menuRGBSettings(void)
 }
 
 
+// Set uart pins to input, free uart
+void menuDisconnect(void)
+{
+  GUI_Clear(infoSettings.bg_color);
+  GUI_DispStringInRect(20, 0, LCD_WIDTH-20, LCD_HEIGHT, textSelect(LABEL_DISCONNECT_INFO));
+  GUI_DispStringInRect(20, LCD_HEIGHT - (BYTE_HEIGHT*2), LCD_WIDTH-20, LCD_HEIGHT, textSelect(LABEL_TOUCH_TO_EXIT));
+
+  Serial_ReSourceDeInit();
+  while(!isPress());
+  while(isPress());
+  Serial_ReSourceInit();
+
+  infoMenu.cur--;
+}
+
 void menuMachineSettings(void)
 {
 
@@ -194,9 +209,9 @@ void menuMachineSettings(void)
   // icon                       label
    {{ICON_RGB_SETTINGS,         LABEL_RGB_SETTINGS},
     {ICON_PARAMETER,            LABEL_PARAMETER_SETTING},
-    {ICON_CUSTOM,               LABEL_CUSTOM},
-    {ICON_GCODE,                LABEL_TERMINAL},
+    {ICON_DISCONNECT,           LABEL_DISCONNECT},
     {ICON_SHUT_DOWN,            LABEL_SHUT_DOWN},
+    {ICON_BACKGROUND,           LABEL_BACKGROUND},
     {ICON_BACKGROUND,           LABEL_BACKGROUND},
     {ICON_BACKGROUND,           LABEL_BACKGROUND},
     {ICON_BACK,                 LABEL_BACK},}
@@ -229,16 +244,10 @@ void menuMachineSettings(void)
         break;
 
       case KEY_ICON_2:
-        if(!isPrinting())
-          infoMenu.menu[++infoMenu.cur] =  menuCustom;
+        infoMenu.menu[++infoMenu.cur] = menuDisconnect;
         break;
 
       case KEY_ICON_3:
-        if(!isPrinting())
-          infoMenu.menu[++infoMenu.cur] = menuSendGcode;
-        break;
-
-      case KEY_ICON_4:
         if(!isPrinting())
           storeCmd("M81\n");
         break;

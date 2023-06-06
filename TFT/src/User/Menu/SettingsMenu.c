@@ -49,20 +49,7 @@ void menuInfo(void)
   infoMenu.cur--;
 }
 
-// Set uart pins to input, free uart
-void menuDisconnect(void)
-{
-  GUI_Clear(infoSettings.bg_color);
-  GUI_DispStringInRect(20, 0, LCD_WIDTH-20, LCD_HEIGHT, textSelect(LABEL_DISCONNECT_INFO));
-  GUI_DispStringInRect(20, LCD_HEIGHT - (BYTE_HEIGHT*2), LCD_WIDTH-20, LCD_HEIGHT, textSelect(LABEL_TOUCH_TO_EXIT));
 
-  Serial_ReSourceDeInit();
-  while(!isPress());
-  while(isPress());
-  Serial_ReSourceInit();
-
-  infoMenu.cur--;
-}
 
 MENUITEMS settingsItems = {
 // title
@@ -72,8 +59,8 @@ LABEL_SETTINGS,
   {ICON_MACHINE_SETTINGS,     LABEL_MACHINE_SETTINGS},
   {ICON_FEATURE_SETTINGS,     LABEL_FEATURE_SETTINGS},
   {ICON_SCREEN_INFO,          LABEL_SCREEN_INFO},
-  {ICON_DISCONNECT,           LABEL_DISCONNECT},
   {ICON_BAUD_RATE,            LABEL_BACKGROUND},
+  {ICON_BACKGROUND,           LABEL_BACKGROUND},
   {ICON_BACKGROUND,           LABEL_BACKGROUND},
   {ICON_BACK,                 LABEL_BACK},}
 };
@@ -103,7 +90,7 @@ void menuSettings(void)
     if(infoSettings.baudrate == item_baudrate[i])
     {
       item_baudrate_i = i;
-      settingsItems.items[KEY_ICON_5] = itemBaudrate[item_baudrate_i];
+      settingsItems.items[KEY_ICON_4] = itemBaudrate[item_baudrate_i];
     }
   }
 
@@ -131,10 +118,6 @@ void menuSettings(void)
         break;
 
       case KEY_ICON_4:
-        infoMenu.menu[++infoMenu.cur] = menuDisconnect;
-        break;
-
-      case KEY_ICON_5:
         item_baudrate_i = (item_baudrate_i + 1) % ITEM_BAUDRATE_NUM;
         settingsItems.items[key_num] = itemBaudrate[item_baudrate_i];
         menuDrawItem(&settingsItems.items[key_num], key_num);

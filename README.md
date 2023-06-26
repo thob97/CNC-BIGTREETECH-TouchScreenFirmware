@@ -1,6 +1,8 @@
-# MarlinCNC
+# CNC-BIGTREETECH-TouchScreenFirmware
 
 BIGTREETECH Firmware changed to work for my specific cnc setup.
+
+<img src="./example_pictures/1.jpeg"  width="30%" height="30%">
 
 ## Table Of Content
 
@@ -54,6 +56,16 @@ To update the Firmware configuration:
 4. The TFT will update and store the configuraiton form **config.ini** file.
 
 ## Example demo pictures
+<p float="left">
+    <img src="./example_pictures/1.jpeg"  width="30%" height="30%">
+    <img src="./example_pictures/2.jpeg"  width="30%" height="30%">
+    <img src="./example_pictures/3.jpeg"  width="30%" height="30%">
+    <img src="./example_pictures/4.jpeg"  width="30%" height="30%">
+    <img src="./example_pictures/5.jpeg"  width="30%" height="30%">
+    <img src="./example_pictures/6.jpeg"  width="30%" height="30%">
+    <img src="./example_pictures/7.jpeg"  width="30%" height="30%">
+    <img src="./example_pictures/8.jpeg"  width="30%" height="30%">
+</p>
 
 ## Acknowledgments
 

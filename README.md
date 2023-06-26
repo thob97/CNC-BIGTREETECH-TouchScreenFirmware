@@ -15,8 +15,8 @@ BIGTREETECH Firmware changed to work for my specific cnc setup.
 
 ### Installing
 
-* ```git clone https://github.com/thob97/MarlinCNC.git```
-* ```cd submodule-Marlin```
+* ```git clone https://github.com/thob97/CNC-BIGTREETECH-TouchScreenFirmware.git```
+* ```cd CNC-BIGTREETECH-TouchScreenFirmware```
 
 ### Update TFT Firmware
 

@@ -10,8 +10,8 @@ BIGTREETECH Firmware changed to work for my specific cnc setup.
     - [Installing](#installing)
     - [Update TFT Firmware](#update-tft-firmware)
     - [Configuration](#configuration)
-- [Acknowledgments](#acknowledgments)
 - [Example pictures](#example-pictures)
+- [Acknowledgments](#acknowledgments)
 - [Forked Projekt ReadMe](#bigTreeTech-touchscreen-firmware)
 
 ## Getting Started

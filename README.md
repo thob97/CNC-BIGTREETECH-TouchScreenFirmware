@@ -70,7 +70,6 @@ To update the Firmware configuration:
 
 ## Acknowledgments
 
-Most of the code is from:
 * https://github.com/jeffeb3/BIGTREETECH-TouchScreenFirmware
 * https://github.com/V1EngineeringInc/BIGTREETECH-TouchScreenFirmware
 * https://github.com/bigtreetech/BIGTREETECH-TouchScreenFirmware

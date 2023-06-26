@@ -1,3 +1,76 @@
+# MarlinCNC
+
+BIGTREETECH Firmware changed to work for my specific cnc setup.
+
+## Table Of Content
+
+- [Getting Started](#getting-started)
+    - [Installing](#installing)
+    - [Update TFT Firmware](#update-tft-firmware)
+    - [Configuration](#configuration)
+- [Acknowledgments](#acknowledgments)
+- [Forked Projekt ReadMe](#bigTreeTech-touchscreen-firmware)
+
+## Getting Started
+
+### Installing
+
+* ```git clone https://github.com/thob97/MarlinCNC.git```
+* ```cd submodule-Marlin```
+
+### Update TFT Firmware
+
+TFT firmware updates are comprised of two parts:
+
+1. The firmware binary (`BIGTREE_TFT*_V*.*.*.bin`). Example: `BIGTREE_TFT35_V3.0.25.2.bin`:
+     - `BIGTREE_TFT_35`: model
+     - `V3.0`: hardware version
+     - `25.2`: software version
+2. Fonts and Icons (`TFT*` folder):
+   - `TFT*/font`: fonts
+   - `TFT*/bmp`: icons
+
+Copy both the `BIGTREE_TFT*_V*.*.*.bin` and `TFT*` folder to the root of a blank SD card that is <8GB and formatted as FAT32:
+
+![image](https://user-images.githubusercontent.com/13375512/76688998-3e989e80-65ef-11ea-93df-29a8216475a6.png)
+
+Place SD card with `BIGTREE_TFT*_V*.*.*.bin` &amp; `TFT*` folder into the TFT's SD card reader and power cycle your printer to start the update process.
+
+<p align=center> ⚠️ Failing to update your icons &amp; fonts will result in missing icons and/or unreadable text ⚠️ </p>
+
+### Configuration
+The Firmware can be configured using the **config.ini** file from from one of these folders:
+[`Copy to SD Card root directory to update`](https://github.com/bigtreetech/BIGTREETECH-TouchScreenFirmware/tree/master/Copy%20to%20SD%20Card%20root%20directory%20to%20update) or
+[`Copy to SD Card root directory to update - Unified Menu Material theme`](https://github.com/bigtreetech/BIGTREETECH-TouchScreenFirmware/tree/master/Copy%20to%20SD%20Card%20root%20directory%20to%20update%20-%20Unified%20Menu%20Material%20theme)
+
+#### Editing configuration (config.ini) file
+To edit the **config.ini** file follow the instruction here: [Detailed Instructions here](config_instructions.md)
+
+#### Updating Firmware Configuration
+To update the Firmware configuration:
+1. Edit the settings in **config.ini**.
+2. Copy the **config.ini** file to the root of the SD card. (The SD card capacity should be less than or equal to 8GB and formatted as FAT32)
+3. Insert the SD card in the TFT's SD card slot and restart the TFT by pressing the reset buttion or disconnecting and connecting the power cable.
+4. The TFT will update and store the configuraiton form **config.ini** file.
+
+## Example demo pictures
+
+## Acknowledgments
+
+Most of the code is from:
+* https://github.com/jeffeb3/BIGTREETECH-TouchScreenFirmware
+* https://github.com/V1EngineeringInc/BIGTREETECH-TouchScreenFirmware
+* https://github.com/bigtreetech/BIGTREETECH-TouchScreenFirmware
+
+<br /><br /><br /><br /><br /><br /><br /><br /><br />
+
+
+
+
+
+
+
+
 V1- Folder "Copy to SD Card root directory to update - Unified Menu Material theme"
 
 

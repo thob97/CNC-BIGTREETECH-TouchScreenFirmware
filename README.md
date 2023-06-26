@@ -11,6 +11,7 @@ BIGTREETECH Firmware changed to work for my specific cnc setup.
     - [Update TFT Firmware](#update-tft-firmware)
     - [Configuration](#configuration)
 - [Acknowledgments](#acknowledgments)
+- [Example pictures](#example-pictures)
 - [Forked Projekt ReadMe](#bigTreeTech-touchscreen-firmware)
 
 ## Getting Started
@@ -55,7 +56,7 @@ To update the Firmware configuration:
 3. Insert the SD card in the TFT's SD card slot and restart the TFT by pressing the reset buttion or disconnecting and connecting the power cable.
 4. The TFT will update and store the configuraiton form **config.ini** file.
 
-## Example demo pictures
+## Example pictures
 <p float="left">
     <img src="./example_pictures/1.jpeg"  width="30%" height="30%">
     <img src="./example_pictures/2.jpeg"  width="30%" height="30%">

@@ -11,6 +11,7 @@ BIGTREETECH Firmware changed to work for my specific cnc setup.
     - [Update TFT Firmware](#update-tft-firmware)
     - [Configuration](#configuration)
 - [Example pictures](#example-pictures)
+- [Related](#related)
 - [Acknowledgments](#acknowledgments)
 - [Forked Projekt ReadMe](#bigTreeTech-touchscreen-firmware)
 
@@ -67,6 +68,12 @@ To update the Firmware configuration:
     <img src="./example_pictures/7.jpeg"  width="30%" height="30%">
     <img src="./example_pictures/8.jpeg"  width="30%" height="30%">
 </p>
+
+## Related
+* [3040 CNC Marlin](https://github.com/thob97/3040-CNC-marlin.git)
+* [CNC-BIGTREETECH-TouchScreenFirmware](https://github.com/thob97/CNC-BIGTREETECH-TouchScreenFirmware.git)
+* [MarlinCNC](https://github.com/thob97/MarlinCNC.git)
+* [submodule-mpcnc_post_processor](https://github.com/thob97/submodule-mpcnc_post_processor.git)
 
 ## Acknowledgments
 
